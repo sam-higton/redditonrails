@@ -4,7 +4,10 @@
   <% @posts.each do |post| %>
   <li>
     <strong><%= link_to post.title, post.link, :target => "_blank" %></strong><br>
-    <%= link_to 'Show Details', post_path(post) %>
+    <%= post.getScore %> | 
+    <%= link_to 'Show Details', post_path(post) %> |
+    upvote |
+    downvote
   </li>
   <% end %>
 </ol>

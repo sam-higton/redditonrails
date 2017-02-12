@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212153025) do
+ActiveRecord::Schema.define(version: 20170212171040) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "link"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "upvotes",     default: 0
+    t.integer  "downvotes",   default: 0
   end
 
 end
