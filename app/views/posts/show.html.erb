@@ -1,0 +1,13 @@
+<h2>
+  <a href="<%= @post.link %>">
+    <%= @post.title %>
+  </a>
+</h2>
+
+<p>
+  <%= @post.description %>
+</p>
+
+<p>
+  <%= link_to 'Back to posts', controller: 'posts' %>
+</p>

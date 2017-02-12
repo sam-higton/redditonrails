@@ -1,6 +1,15 @@
 <h1>New Post</h1>
 <%= form_for :post, url: posts_path do |f| %>
-
+  <% if @post.errors.any? %>
+    <div class="errors">
+      Oh no! Something went wrong!
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -19,5 +28,6 @@
   <p>
     <%= f.submit %>
   </p>
-
 <% end %>
+
+<p><%= link_to "cancel", posts_path %></p>

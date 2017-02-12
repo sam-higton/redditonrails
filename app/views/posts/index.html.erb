@@ -1,0 +1,10 @@
+<h1>reddit on rails</h1>
+<p><%= link_to 'New Post', new_post_path %></p>
+<ol>
+  <% @posts.each do |post| %>
+  <li>
+    <strong><%= link_to post.title, post.link, :target => "_blank" %></strong><br>
+    <%= link_to 'Show Details', post_path(post) %>
+  </li>
+  <% end %>
+</ol>
