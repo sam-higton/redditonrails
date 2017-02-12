@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = getPostFromId
   end
 
   def new
@@ -21,9 +21,27 @@ class PostsController < ApplicationController
     end
   end
 
+  def upvote
+    @post = getPostFromId
+    @post.addUpvote
+    @post.save
+    redirect_to @post
+  end
+
+  def downvote
+    @post = getPostFromId
+    @post.addDownvote
+    @post.save
+    redirect_to @post
+  end
+
   private
     def post_params
       return params.require(:post).permit(:title, :link, :description)
+    end
+
+    def getPostFromId
+      Post.find(params[:id])
     end
 
 end

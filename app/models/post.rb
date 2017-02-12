@@ -17,6 +17,7 @@ class Post < ApplicationRecord
   end
 
   def addUpvote
+    YAML::dump(upvotes)
     upvotes += 1
     return getScore
   end
